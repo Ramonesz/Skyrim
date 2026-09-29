@@ -3,23 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Skyrim | The Elder Scrolls</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Index</a> |
-        <a href="html/combate.html">Combate</a> |
-        <a href="html/curiosidades.html">Curiosidades</a> |
-        <a href="html/dlcs.html">DLCs</a> |
-        <a href="html/historia.html">História</a> |
-        <a href="html/personagem.html">Personagem</a> |
-        <a href="html/mundo.html">Mundo</a>
-    </nav>
+    <header class="cabecalho">
+        <div class="container agrupamento-navegacao">
+            <div class="caixa-logo">
+                <img src="imagens/skyrim_logo_unica.png" alt="Logo exclusiva de Skyrim" class="logo-principal">
+            </div>
 
-    <main>
-        <h1>Index</h1>
-        <p>Pagina inicial mais apresentacao do jogo e da saga the elder scrolls</p>
+            <nav class="menu-principal" aria-label="Navegação principal">
+                <a href="index.html" class="ativo">Início</a>
+                <a href="html/combate.html">Combate</a>
+                <a href="html/curiosidades.html">Curiosidades</a>
+                <a href="html/dlcs.html">DLCs</a>
+                <a href="html/historia.html">História</a>
+                <a href="html/personagem.html">Personagem</a>
+                <a href="html/mundo.html">Mundo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="apresentacao">
+            <div class="texto-apresentacao">
+                <h1>Skyrim</h1>
+                <p>
+                    Skyrim é um dos jogos mais conhecidos do gênero RPG, com montanhas nevadas,
+                    vilas antigas, dragões e uma história que depende das escolhas do jogador.
+                </p>
+                <div class="acoes-principais">
+                    <a href="https://elderscrolls.bethesda.net/pt-BR/skyrim10/buy-now" class="botao-principal" target="_blank" rel="noopener noreferrer">Adquira o Jogo</a>
+                </div>
+            </div>
+
+            <div class="imagem-apresentacao">
+                <div class="moldura-imagem">
+                    <img src="imagens/Skyrim-Logo_escrita.jpg" alt="Logo do jogo The Elder Scrolls V: Skyrim">
+                </div>
+            </div>
+        </section>
+
+        <section class="descricao">
+            <article>
+                <h2>O que é Skyrim?</h2>
+                <p>
+                    Skyrim é o quinto jogo da série The Elder Scrolls, lançado em 2011 pela <a href="https://bethesda.net/pt-BR" target="_blank" rel="noopener noreferrer">Bethesda</a>.
+                    Ele acontece na província de Skyrim, um território gelado e cheio de mistérios,
+                    cidades históricas e criaturas lendárias. O jogador cria seu personagem e vive
+                    uma aventura aberta, com liberdade para explorar e decidir como agir.
+                </p>
+            </article>
+
+            <article>
+                <h2>O que é The Elder Scrolls?</h2>
+                <p>
+                    The Elder Scrolls é uma franquia famosa de RPG fantástico. Ela se destaca por
+                    seus mundos abertos, histórias profundas e a liberdade de explorar cada detalhe
+                    do universo. Skyrim é um dos jogos mais populares da série e ajudou a popularizar
+                    ainda mais a marca.
+                </p>
+            </article>
+        </section>
     </main>
+
+    <footer class="rodape">
+        <div class="container conteudo-rodape">
+            <div class="bloco-rodape">
+                <h3>Explorar</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="html/historia.html">História</a></li>
+                    <li><a href="html/mundo.html">Mundo</a></li>
+                    <li><a href="html/combate.html">Combate</a></li>
+                </ul>
+            </div>
+
+            <div class="bloco-rodape">
+                <h3>Créditos</h3>
+                <ul class="lista-creditos">
+                    <li><a href="https://bethesda.net/pt-BR" target="_blank" rel="noopener noreferrer">Bethesda</a></li>
+                    <li><a href="https://elderscrolls.bethesda.net/pt-BR/skyrim10" target="_blank" rel="noopener noreferrer">Skyrim</a></li>
+                </ul>
+            </div>
+
+            <div class="bloco-rodape bloco-imagem-rodape">
+                <img src="imagens/skyrim_viking.png" alt="Imagem do Viking de Skyrim" class="imagem-rodape">
+            </div>
+        </div>
+        <div class="container direitos-rodape">
+            <p>© 2026 Todos os direitos reservados</p>
+        </div>
+    </footer>
 </body>
 </html>
