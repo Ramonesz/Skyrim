@@ -1,8 +1,5 @@
 :root {
-    --fundo-base: #eaf2f8;
     --fundo-escuro: #162b3d;
-    --fundo-cartao: #f7fafc;
-    --azul-gelo: #9cc6dd;
     --azul-profundo: #1d3557;
     --dourado: #d4a84e;
     --dourado-escuro: #af8131;
@@ -16,6 +13,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -36,6 +37,10 @@ img {
 }
 
 .cabecalho {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 10;
     background: rgba(22, 43, 61, 0.96);
     border-bottom: 3px solid var(--dourado);
     box-shadow: 0 6px 18px var(--sombra);
@@ -132,13 +137,18 @@ img {
     font-weight: 700;
     padding: 14px 26px;
     border-radius: 999px;
-    box-shadow: 0 8px 20px rgba(175, 129, 49, 0.25);
+    box-shadow: 0 6px 0 rgba(91, 62, 18, 0.7), 0 12px 24px rgba(91, 62, 18, 0.28);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .botao-principal:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 22px rgba(175, 129, 49, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 rgba(91, 62, 18, 0.7), 0 16px 28px rgba(91, 62, 18, 0.35);
+}
+
+.botao-principal:focus-visible {
+    outline: 3px solid var(--fundo-escuro);
+    outline-offset: 4px;
 }
 
 .imagem-apresentacao {
@@ -289,55 +299,316 @@ img {
     text-decoration: underline;
 }
 
-.rodape-bloco ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.pagina-conteudo {
+    min-height: calc(100vh - 132px);
+    background: #dbe7ef;
 }
 
-.rodape-bloco li {
-    margin-bottom: 8px;
+.abertura-conteudo {
+    grid-template-columns: 1fr;
+    padding-bottom: 70px;
 }
 
-.rodape-bloco a,
-.rodape-bloco p {
-    color: #dfeaf3;
+.abertura-conteudo h1 {
+    max-width: 1000px;
+    font-size: clamp(2.8rem, 5.5vw, 5.4rem);
+}
+
+.atalhos-combate {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.atalhos-combate a {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid var(--dourado-escuro);
+    border-radius: 999px;
+    color: var(--fundo-escuro);
+    font-weight: 700;
     text-decoration: none;
-    font-size: 0.96rem;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.atalhos-combate a:hover,
+.atalhos-combate a:focus-visible {
+    background: var(--dourado);
+    color: var(--fundo-escuro);
+    transform: translateY(-2px);
+}
+
+.secao-armas {
+    padding: 30px 0 90px;
+}
+
+.titulo-secao {
+    max-width: 650px;
+    margin-bottom: 34px;
+}
+
+.titulo-secao h2 {
+    margin-bottom: 12px;
+    color: var(--fundo-escuro);
+    font-size: clamp(1.9rem, 3vw, 3.1rem);
+    line-height: 1;
+}
+
+.titulo-secao > p {
+    color: var(--cinza);
+    font-size: 1.05rem;
     line-height: 1.7;
 }
 
-.rodape-bloco a:hover {
-    color: var(--dourado);
+.lista-armas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
 }
 
-.creditos-lista {
+.secao-conteudo {
+    padding: 26px 0 90px;
+    scroll-margin-top: 24px;
+}
+
+.lista-conteudo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.cartao-conteudo {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    background: rgba(247, 250, 252, 0.78);
+    border-top: 4px solid var(--azul-profundo);
+    box-shadow: 0 12px 24px rgba(20, 33, 43, 0.08);
+}
+
+.cartao-conteudo h3 {
+    margin-bottom: 10px;
+    color: var(--fundo-escuro);
+    font-size: 1.35rem;
+}
+
+.cartao-conteudo > p {
+    margin-bottom: 18px;
+    color: var(--cinza);
+    line-height: 1.7;
+}
+
+.cartao-conteudo ul {
+    display: grid;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(29, 53, 87, 0.14);
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
-.creditos-lista li {
-    margin-bottom: 8px;
+.cartao-conteudo li {
+    color: var(--cinza);
+    line-height: 1.65;
+}
+
+.cartao-conteudo li::before {
+    content: "—";
+    margin-right: 8px;
+    color: var(--dourado-escuro);
+}
+
+.cartao-conteudo strong {
+    color: var(--fundo-escuro);
+}
+
+.carrossel-conteudo {
+    height: 220px;
+    margin-top: auto;
+    padding-top: 22px;
+    position: relative;
+    overflow: hidden;
+    background: #a9bbc8;
+}
+
+.carrossel-conteudo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: trocar-imagem 12s infinite;
+}
+
+.carrossel-conteudo img:first-child {
+    opacity: 1;
+    animation-delay: 0s;
+}
+
+.carrossel-conteudo img:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.carrossel-conteudo img:nth-child(3) {
+    animation-delay: 8s;
+}
+
+.dlcs-pagina {
+    padding-bottom: 90px;
+}
+
+.dlcs-abertura {
+    grid-template-columns: 1fr;
+    padding-bottom: 58px;
+}
+
+.lista-dlcs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card-dlc {
+    overflow: hidden;
+    background: rgba(247, 250, 252, 0.82);
+    border-top: 4px solid var(--dourado);
+    box-shadow: 0 14px 28px rgba(20, 33, 43, 0.1);
+}
+
+.card-dlc img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #a9bbc8;
+}
+
+.conteudo-dlc {
+    padding: 24px;
+}
+
+.conteudo-dlc h2 {
+    margin-bottom: 10px;
+    color: var(--fundo-escuro);
+    font-size: 1.55rem;
+}
+
+.conteudo-dlc p {
+    color: var(--cinza);
+    line-height: 1.7;
+}
+
+.racas-pagina {
+    padding-bottom: 90px;
+}
+
+.racas-abertura {
+    grid-template-columns: 1fr;
+    padding-bottom: 58px;
+}
+
+.lista-racas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card-raca {
+    overflow: hidden;
+    background: rgba(247, 250, 252, 0.82);
+    border-top: 4px solid var(--dourado);
+    box-shadow: 0 14px 28px rgba(20, 33, 43, 0.1);
+}
+
+.card-raca-nao-jogavel {
+    border-top-color: var(--cinza);
+}
+
+.card-raca img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #a9bbc8;
+}
+
+.conteudo-raca {
+    padding: 24px;
+}
+
+.conteudo-raca h2 {
+    margin-bottom: 10px;
+    color: var(--fundo-escuro);
+    font-size: 1.45rem;
+}
+
+.conteudo-raca p {
+    color: var(--cinza);
+    line-height: 1.7;
+}
+
+.status-raca {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--cinza);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+@keyframes trocar-imagem {
+    0%, 28% {
+        opacity: 1;
+    }
+
+    34%, 100% {
+        opacity: 0;
+    }
 }
 
 @media (max-width: 760px) {
-    .nav-wrap {
+    .agrupamento-navegacao {
         flex-direction: column;
         align-items: center;
     }
 
-    .menu a {
+    .menu-principal a {
         font-size: 0.68rem;
+        padding: 9px 10px;
     }
 
-    .hero,
-    .resumo,
+    .apresentacao,
     .descricao {
         grid-template-columns: 1fr;
     }
 
-    .hero {
+    .apresentacao {
         padding-top: 42px;
     }
+
+    .secao-armas {
+        padding-top: 52px;
+        padding-bottom: 64px;
+    }
+
+    .lista-armas {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-dlcs {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-racas {
+        grid-template-columns: 1fr;
+    }
+
+    .carrossel-conteudo {
+        height: 200px;
+    }
+
 }
