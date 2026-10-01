@@ -31,7 +31,7 @@ img {
     display: block;
 }
 
-.container {
+.limite-conteudo {
     width: min(1180px, 90%);
     margin: 0 auto;
 }
@@ -314,35 +314,6 @@ img {
     font-size: clamp(2.8rem, 5.5vw, 5.4rem);
 }
 
-.atalhos-combate {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.atalhos-combate a {
-    display: inline-block;
-    padding: 12px 20px;
-    border: 1px solid var(--dourado-escuro);
-    border-radius: 999px;
-    color: var(--fundo-escuro);
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.atalhos-combate a:hover,
-.atalhos-combate a:focus-visible {
-    background: var(--dourado);
-    color: var(--fundo-escuro);
-    transform: translateY(-2px);
-}
-
-.secao-armas {
-    padding: 30px 0 90px;
-}
-
 .titulo-secao {
     max-width: 650px;
     margin-bottom: 34px;
@@ -359,12 +330,6 @@ img {
     color: var(--cinza);
     font-size: 1.05rem;
     line-height: 1.7;
-}
-
-.lista-armas {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
 }
 
 .secao-conteudo {
@@ -431,27 +396,118 @@ img {
     background: #a9bbc8;
 }
 
-.carrossel-conteudo img {
+.carrossel-manual {
+    padding-top: 22px;
+    overflow: hidden;
+}
+
+.seletor-carrossel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.seletor-carrossel:focus-visible ~ .carrossel-faixa .controle-carrossel {
+    outline: 3px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+.carrossel-faixa {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.etapa-carrossel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: #a9bbc8;
+    transition: opacity 0.25s ease;
+}
+
+.carrossel-manual > .seletor-1:checked ~ .carrossel-faixa > .etapa-carrossel:nth-child(1),
+.carrossel-manual > .seletor-2:checked ~ .carrossel-faixa > .etapa-carrossel:nth-child(2),
+.carrossel-manual > .seletor-3:checked ~ .carrossel-faixa > .etapa-carrossel:nth-child(3),
+.carrossel-manual > .seletor-4:checked ~ .carrossel-faixa > .etapa-carrossel:nth-child(4),
+.carrossel-manual > .seletor-5:checked ~ .carrossel-faixa > .etapa-carrossel:nth-child(5) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.etapa-carrossel img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    animation: trocar-imagem 12s infinite;
-}
-
-.carrossel-conteudo img:first-child {
+    object-fit: contain;
     opacity: 1;
-    animation-delay: 0s;
+    animation: none;
+    user-select: none;
 }
 
-.carrossel-conteudo img:nth-child(2) {
-    animation-delay: 4s;
+.controle-carrossel {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: rgba(22, 43, 61, 0.82);
+    color: var(--branco);
+    font-size: 1.7rem;
+    transition: opacity 0.25s ease;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
-.carrossel-conteudo img:nth-child(3) {
-    animation-delay: 8s;
+.controle-carrossel:hover {
+    background: var(--dourado-escuro);
+}
+
+.controle-carrossel:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+.controle-carrossel-anterior {
+    left: 10px;
+}
+
+.controle-carrossel-proximo {
+    right: 10px;
+}
+
+.contador-carrossel {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(22, 43, 61, 0.82);
+    color: var(--branco);
+    font-size: 0.75rem;
+    pointer-events: none;
 }
 
 .dlcs-pagina {
@@ -469,18 +525,31 @@ img {
     gap: 24px;
 }
 
-.card-dlc {
+.cartao-dlc {
     overflow: hidden;
     background: rgba(247, 250, 252, 0.82);
     border-top: 4px solid var(--dourado);
     box-shadow: 0 14px 28px rgba(20, 33, 43, 0.1);
 }
 
-.card-dlc img {
+.cartao-dlc img {
     width: 100%;
     height: 220px;
     object-fit: cover;
     background: #a9bbc8;
+}
+
+.cartao-dlc img.imagem-arma,
+.cartao-dlc img.imagem-monstro {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #a9bbc8;
+}
+
+.imagem-arma-espelhada {
+    transform: scaleX(-1);
 }
 
 .conteudo-dlc {
@@ -498,7 +567,62 @@ img {
     line-height: 1.7;
 }
 
-.racas-pagina {
+.historia-pagina {
+    max-width: 900px;
+    padding-top: 64px;
+    padding-bottom: 90px;
+}
+
+.texto-historia h1 {
+    margin-bottom: 16px;
+    color: var(--fundo-escuro);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+}
+
+.abertura-historia {
+    max-width: 720px;
+    color: var(--cinza);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.texto-historia section {
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(83, 101, 121, 0.3);
+}
+
+.texto-historia section h2 {
+    margin-bottom: 12px;
+    color: var(--fundo-escuro);
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+    .texto-historia section p {
+        margin-top: 12px;
+        color: var(--cinza);
+        line-height: 1.85;
+    }
+
+    .referencias-historia ul {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 24px;
+        padding-left: 20px;
+    }
+
+    .referencias-historia li {
+        color: var(--dourado-escuro);
+    }
+
+    .referencias-historia a {
+        color: var(--fundo-escuro);
+        overflow-wrap: anywhere;
+    }
+
+    .racas-pagina {
     padding-bottom: 90px;
 }
 
@@ -513,18 +637,18 @@ img {
     gap: 24px;
 }
 
-.card-raca {
+.cartao-raca {
     overflow: hidden;
     background: rgba(247, 250, 252, 0.82);
     border-top: 4px solid var(--dourado);
     box-shadow: 0 14px 28px rgba(20, 33, 43, 0.1);
 }
 
-.card-raca-nao-jogavel {
+.cartao-raca-nao-jogavel {
     border-top-color: var(--cinza);
 }
 
-.card-raca img {
+.cartao-raca img {
     width: 100%;
     height: 220px;
     object-fit: cover;
@@ -556,59 +680,91 @@ img {
     text-transform: uppercase;
 }
 
-@keyframes trocar-imagem {
-    0%, 28% {
-        opacity: 1;
+    .mundo-pagina {
+        padding-top: 64px;
+        padding-bottom: 90px;
     }
 
-    34%, 100% {
-        opacity: 0;
-    }
-}
-
-@media (max-width: 760px) {
-    .agrupamento-navegacao {
-        flex-direction: column;
-        align-items: center;
+    .mundo-pagina h1 {
+        margin-bottom: 28px;
+        color: var(--fundo-escuro);
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.15;
     }
 
-    .menu-principal a {
-        font-size: 0.68rem;
-        padding: 9px 10px;
+    .mundo-secao + .mundo-secao {
+        margin-top: 42px;
     }
 
-    .apresentacao,
-    .descricao {
-        grid-template-columns: 1fr;
+    .mundo-secao h2 {
+        margin-bottom: 16px;
+        color: var(--fundo-escuro);
+        font-size: 1.5rem;
     }
 
-    .apresentacao {
-        padding-top: 42px;
+    .mapa-mundo img {
+        display: block;
+        width: 100%;
+        max-height: 720px;
+        object-fit: contain;
+        background: #dfeaf3;
     }
 
-    .secao-armas {
-        padding-top: 52px;
-        padding-bottom: 64px;
+    .galeria-paisagens {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
     }
 
-    .lista-armas {
-        grid-template-columns: 1fr;
+    .galeria-paisagens img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #a9bbc8;
     }
 
-    .lista-conteudo {
-        grid-template-columns: 1fr;
-    }
+    @media (max-width: 760px) {
+        .agrupamento-navegacao {
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .lista-dlcs {
-        grid-template-columns: 1fr;
-    }
+        .menu-principal a {
+            font-size: 0.68rem;
+            padding: 9px 10px;
+        }
 
-    .lista-racas {
-        grid-template-columns: 1fr;
-    }
+        .apresentacao,
+        .descricao {
+            grid-template-columns: 1fr;
+        }
 
-    .carrossel-conteudo {
-        height: 200px;
-    }
+        .apresentacao {
+            padding-top: 42px;
+        }
 
-}
+        .lista-conteudo {
+            grid-template-columns: 1fr;
+        }
+
+        .lista-dlcs {
+            grid-template-columns: 1fr;
+        }
+
+        .lista-racas {
+            grid-template-columns: 1fr;
+        }
+
+        .galeria-paisagens {
+            grid-template-columns: 1fr;
+        }
+
+        .referencias-historia ul {
+            grid-template-columns: 1fr;
+        }
+
+        .carrossel-conteudo {
+            height: 200px;
+        }
+    }

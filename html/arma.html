@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="cabecalho">
-        <div class="container agrupamento-navegacao">
+        <div class="limite-conteudo agrupamento-navegacao">
             <div class="caixa-logo"><img src="../imagens/logo.png" alt="Logo de Skyrim" class="logo-principal"></div>
             <nav class="menu-principal" aria-label="Navegação principal">
                 <a href="../index.html">Início</a>
@@ -23,32 +23,44 @@
         </div>
     </header>
 
-    <main class="container pagina-conteudo">
-        <section class="apresentacao abertura-conteudo">
+    <main class="limite-conteudo dlcs-pagina">
+        <section class="apresentacao dlcs-abertura">
             <div class="texto-apresentacao">
                 <h1>Armas no Skyrim</h1>
                 <p>Em Skyrim, cada arma muda a forma como você enfrenta uma batalha. Escolha entre velocidade, força, alcance e magia para criar um estilo que combine com seu personagem.</p>
             </div>
         </section>
 
-        <section class="secao-armas">
-            <div class="lista-armas">
-                <article class="cartao-conteudo"><h3>Espadas de Uma Mão</h3><p>Rápidas e versáteis, permitem usar escudo, magia ou outra arma na mão secundária.</p><div class="carrossel-conteudo"><img src="../imagens/espada-uma-mao-1.jpg" alt="Espada de uma mão"><img src="../imagens/espada-uma-mao-2.jpg" alt="Outra espada de uma mão"><img src="../imagens/espada-uma-mao-3.jpg" alt="Espada de uma mão em combate"></div></article>
-                <article class="cartao-conteudo"><h3>Adagas</h3><p>Leves e muito rápidas, são ideais para ataques furtivos e golpes pelas costas.</p><div class="carrossel-conteudo"><img src="../imagens/adaga-1.jpg" alt="Adaga"><img src="../imagens/adaga-2.jpg" alt="Outra adaga"><img src="../imagens/adaga-3.jpg" alt="Adaga em combate"></div></article>
-                    <article class="cartao-conteudo"><h3>Machados de Guerra</h3><p>Armas de uma mão com bom dano e efeitos de sangramento.</p><div class="carrossel-conteudo"><img src="../imagens/machado-guerra-1.jpg" alt="Machado de guerra"><img src="../imagens/machado-guerra-2.jpg" alt="Outro machado de guerra"><img src="../imagens/machado-guerra-3.jpg" alt="Machado de guerra em combate"></div></article>
-                <article class="cartao-conteudo"><h3>Maças de Uma Mão</h3><p>Mais lentas e pesadas, causam grande dano contra inimigos com armadura.</p><div class="carrossel-conteudo"><img src="../imagens/maca-uma-mao-1.jpg" alt="Maça de uma mão"><img src="../imagens/maca-uma-mao-2.jpg" alt="Outra maça de uma mão"><img src="../imagens/maca-uma-mao-3.jpg" alt="Maça de uma mão em combate"></div></article>
-                    <article class="cartao-conteudo"><h3>Espadas de Duas Mãos</h3><p>Armas pesadas rápidas, com alcance, dano alto e bons golpes de desestabilização.</p><div class="carrossel-conteudo"><img src="../imagens/espada-duas-maos-1.jpg" alt="Espada de duas mãos"><img src="../imagens/espada-duas-maos-2.jpg" alt="Outra espada de duas mãos"><img src="../imagens/espada-duas-maos-3.jpg" alt="Espada de duas mãos em combate"></div></article>
-                    <article class="cartao-conteudo"><h3>Machados de Batalha</h3><p>Armas de duas mãos equilibradas entre velocidade, alcance e poder de corte.</p><div class="carrossel-conteudo"><img src="../imagens/machado-batalha-1.jpg" alt="Machado de batalha"><img src="../imagens/machado-batalha-2.jpg" alt="Outro machado de batalha"><img src="../imagens/machado-batalha-3.jpg" alt="Machado de batalha em combate"></div></article>
-                    <article class="cartao-conteudo"><h3>Martelos de Guerra</h3><p>Os mais lentos e pesados, mas entregam o maior dano por golpe.</p><div class="carrossel-conteudo"><img src="../imagens/martelo-guerra-1.jpg" alt="Martelo de guerra"><img src="../imagens/martelo-guerra-2.jpg" alt="Outro martelo de guerra"><img src="../imagens/martelo-guerra-3.jpg" alt="Martelo de guerra em combate"></div></article>
-                    <article class="cartao-conteudo"><h3>Cajados Mágicos</h3><p>Fontes portáteis de feitiços que usam cargas próprias em vez de consumir Magicka.</p><div class="carrossel-conteudo"><img src="../imagens/cajado-magico-1.jpg" alt="Cajado mágico"><img src="../imagens/cajado-magico-2.jpg" alt="Outro cajado mágico"><img src="../imagens/cajado-magico-3.jpg" alt="Cajado mágico em combate"></div></article>
-                    <article class="cartao-conteudo"><h3>Arcos</h3><p>Armas de distância ideais para iniciar combates de longe e atacar furtivamente.</p><div class="carrossel-conteudo"><img src="../imagens/arco-1.jpg" alt="Arco"><img src="../imagens/arco-2.jpg" alt="Outro arco"><img src="../imagens/arco-3.jpg" alt="Arco em combate"></div></article>
-                    <article class="cartao-conteudo"><h3>Bestas</h3><p>Disparam virotes com grande impacto e podem ignorar parte da armadura.</p><div class="carrossel-conteudo"><img src="../imagens/besta-1.jpg" alt="Besta"><img src="../imagens/besta-2.jpg" alt="Outra besta"><img src="../imagens/besta-3.jpg" alt="Besta em combate"></div></article>
-            </div>
+        <section class="lista-dlcs" aria-label="Categorias de armas de Skyrim">
+            <article class="cartao-dlc">
+                <img class="imagem-arma" src="../imagens/imgarmas/arma-espadas-uma-mao.jpg" alt="Espadas de uma mão">
+                <div class="conteudo-dlc"><h2>Espadas de Uma Mão</h2><p>Rápidas e versáteis, permitem usar escudo, magia ou outra arma na mão secundária.</p></div>
+            </article>
+            <article class="cartao-dlc">
+                <img class="imagem-arma" src="../imagens/imgarmas/arma-adagas.webp" alt="Adagas">
+                <div class="conteudo-dlc"><h2>Adagas</h2><p>Leves e muito rápidas, são ideais para ataques furtivos e golpes pelas costas.</p></div>
+            </article>
+            <article class="cartao-dlc">
+                <img class="imagem-arma imagem-arma-espelhada" src="../imagens/imgarmas/arma-machados-guerra.jpg" alt="Machado de guerra">
+                <div class="conteudo-dlc"><h2>Machados de Guerra</h2><p>Armas de uma mão com bom dano e efeitos de sangramento.</p></div>
+            </article>
+            <article class="cartao-dlc">
+                <img class="imagem-arma" src="../imagens/imgarmas/arma-pesada.webp" alt="Maça pesada">
+                <div class="conteudo-dlc"><h2>Arma Pesada</h2><p>Mais lenta e pesada, causa grande dano contra inimigos com armadura.</p></div>
+            </article>
+            <article class="cartao-dlc">
+                <img class="imagem-arma" src="../imagens/imgarmas/arma-cajados-magicos.jpg" alt="Cajado mágico">
+                <div class="conteudo-dlc"><h2>Cajados Mágicos</h2><p>Fontes portáteis de feitiços que usam cargas próprias em vez de consumir Magicka.</p></div>
+            </article>
+            <article class="cartao-dlc">
+                <img class="imagem-arma" src="../imagens/imgarmas/arma-arcos.webp" alt="Arco">
+                <div class="conteudo-dlc"><h2>Arcos</h2><p>Armas de distância ideais para iniciar combates de longe e atacar furtivamente.</p></div>
+            </article>
         </section>
     </main>
 
     <footer class="rodape">
-        <div class="container conteudo-rodape">
+        <div class="limite-conteudo conteudo-rodape">
             <div class="bloco-rodape">
                 <h3>Explorar</h3>
                 <ul>
@@ -60,14 +72,14 @@
             </div>
             <div class="bloco-rodape">
                 <h3>Créditos</h3>
-                <ul class="lista-creditos">
+                <ul >
                     <li><a href="https://bethesda.net/pt-BR" target="_blank" rel="noopener noreferrer">Bethesda</a></li>
                     <li><a href="https://elderscrolls.bethesda.net/pt-BR/skyrim10" target="_blank" rel="noopener noreferrer">Skyrim</a></li>
                 </ul>
             </div>
             <div class="bloco-rodape bloco-imagem-rodape"><img src="../imagens/skyrim_viking.png" alt="Imagem do Viking de Skyrim" class="imagem-rodape"></div>
         </div>
-        <div class="container direitos-rodape"><p>© 2026 Todos os direitos reservados</p></div>
+        <div class="limite-conteudo direitos-rodape"><p>© 2026 Todos os direitos reservados</p></div>
     </footer>
 </body>
 </html>
